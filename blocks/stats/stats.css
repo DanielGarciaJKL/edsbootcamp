@@ -1,0 +1,65 @@
+.stats {
+  --stats-bg: transparent;
+  --stats-value-color: var(--frescopa-color-brand);
+  --stats-label-color: var(--frescopa-color-text);
+
+  background-color: var(--stats-bg);
+  color: var(--stats-label-color);
+  padding: var(--spacing-big) var(--spacing-small);
+}
+
+.stats.dark {
+  --stats-bg: var(--frescopa-color-black);
+  --stats-value-color: var(--frescopa-color-tertiary);
+  --stats-label-color: var(--color-neutral-50);
+
+  border-radius: var(--shape-border-radius-2);
+}
+
+.stats > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-medium);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats .stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+  text-align: center;
+
+  /* set explicitly: footer.css has an unscoped `li` color rule that would win over inheritance */
+  color: var(--stats-label-color);
+}
+
+.stats .stats-value {
+  margin: 0;
+  font: normal normal normal clamp(40px, 6vw, 64px) / 1 Baskerville, serif;
+  color: var(--stats-value-color);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.stats .stats-label {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+}
+
+.stats .stats-label p {
+  margin: 0;
+}
+
+.stats.dark a:any-link {
+  color: inherit;
+}
+
+@media (width >= 900px) {
+  .stats {
+    padding: var(--spacing-xbig) var(--spacing-big);
+  }
+}
